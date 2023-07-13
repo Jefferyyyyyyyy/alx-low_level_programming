@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Print program using puts function
+ * main - Print program using printf function
  *
  * Return: Always 0 (Success)
  */
