@@ -1,4 +1,4 @@
-#include <studio.h>
+#include <stdio.h>
 /**
  * main - Print program using puts function
  * Return: Always 0 (success)
