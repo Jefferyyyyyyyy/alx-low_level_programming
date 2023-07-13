@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Print program using puts function
+ * main - Prints the size of various types on the computer
  *
  * Return: Always 0 (Success)
  */
