@@ -1,6 +1,6 @@
 #include <unistd.h>
 /**
- * main - Print program using puts function
+ * main - Prints exactly followed by a new line, to the standard error
  *
  * Return: Always 0 (Success)
  */
