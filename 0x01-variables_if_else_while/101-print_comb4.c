@@ -4,7 +4,6 @@
  * Return: 0 (Success)
  * Description: Program that prints all possible different combinations of three digits
 */
-
 int main(void)
 {
 	int i, j, k;
