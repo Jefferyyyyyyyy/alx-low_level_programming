@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 /**
  * main - Entry point of the program
  *
@@ -18,13 +17,13 @@ int main(void)
         putchar(letter);
     }
 
-    /* Print the second half of the alphabet (n to z) */
+    /* Print the second half of the alphabet (n to z) using putchar only once */
     for (letter = 'n'; letter <= 'z'; letter++)
     {
         putchar(letter);
     }
 
-    /* Print a new line */
+    /* Print a new line using putchar only once */
     putchar('\n');
 
     return 0;
