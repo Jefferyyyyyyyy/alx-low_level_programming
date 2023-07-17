@@ -1,31 +1,19 @@
 #include <stdio.h>
 /**
- * main - Entry point of the program
- *
- * Description: Prints the alphabet in lowercase,
- *              followed by a new line using putchar
- *
- * Return: Always 0 (Success)
- */
+ * main - Entry point
+ * Return: 0 (successful)
+ * Desxription: prints lowercase alphabets
+*/
+
+
 int main(void)
 {
-    char letter;
+	char letter;
 
-    /* Print the first half of the alphabet (a to m) */
-    for (letter = 'a'; letter <= 'm'; letter++)
-    {
-        putchar(letter);
-    }
-
-    /* Print the second half of the alphabet (n to z) using putchar only once */
-    for (letter = 'n'; letter <= 'z'; letter++)
-    {
-        putchar(letter);
-    }
-
-    /* Print a new line using putchar only once */
-    putchar('\n');
-
-    return 0;
+	for (letter = 'a'; letter <= 'z'; letter++)
+	{
+		putchar(letter);
+	}
+	putchar('\n');
+	return (0);
 }
-
