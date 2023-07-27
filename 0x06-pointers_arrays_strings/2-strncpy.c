@@ -9,19 +9,22 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int j;
+	char *dest_ptr = dest;
 
-	j = 0;
-	while (j < n && src[j] != '\0')
+	/* Copy characters from src to dest of most n characters */
+	while (n > 0 && *src != '\0')
 	{
-		dest[j] = src[j];
-		j++;
+		*dest_ptr = *src;
+		dest_ptr++;
+		src++;
+		n--;
 	}
-	while (j < n)
+	/* if n is greater than the lenght of src,stop and end with null bytes */
+	while (n > 0)
 	{
-		dest[j] = '\0';
-		j++;
+		*dest_ptr = '\0';
+		dest_ptr++;
+		n--;
 	}
-
 	return (dest);
 }
