@@ -8,22 +8,24 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int i;
-	int j;
+	char *dest_ptr = dest;
 
-	i = 0;
-	while (dest[i] != '\0')
+	/* Move the pointer to the end of the dest */
+	while (*dest_ptr != '\0')
 	{
-		i++;
-	}
-	j = 0;
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest_ptr++;
 	}
 
-	dest[i] = '\0';
+	/* append the characters of src to dest */
+	while (*src != '\0')
+	{
+		*dest_ptr = *src;
+		dest_ptr++;
+		src++;
+	}
+
+	/* add the terminating null byte */
+	*dest_ptr = '\0';
+
 	return (dest);
 }
