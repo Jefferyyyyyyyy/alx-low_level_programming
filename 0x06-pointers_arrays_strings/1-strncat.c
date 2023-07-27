@@ -9,21 +9,25 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i;
-	int j;
+	char *dest_ptr = dest;
 
-	i = 0;
-	while (dest[i] != '\0')
+	/* Move the pointer to the end of the dest */
+	while (*dest_ptr != '\0')
 	{
-		i++;
+		dest_ptr++;
 	}
-	j = 0;
-	while (j < n && src[j] != '\0')
+
+	/* append the characters of src to dest */
+	while (*src != '\0' && n > 0)
 	{
-	dest[i] = src[j];
-	i++;
-	j++;
+		*dest_ptr = *src;
+		dest_ptr++;
+		src++;
+		n--;
 	}
-	dest[i] = '\0';
+
+	/* add the terminating null byte */
+	*dest_ptr = '\0';
+
 	return (dest);
 }
