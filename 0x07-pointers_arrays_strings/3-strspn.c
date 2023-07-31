@@ -4,7 +4,7 @@
  * @s: string to search
  * @accept: string containing acceptable characters
  *
- * Return: Always success (0)
+ * Return: Always 0 (success)
  */
 unsigned int _strspn(char *s, char *accept)
 {
