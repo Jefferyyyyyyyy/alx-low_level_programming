@@ -1,54 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "main.h"
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
-/**
- * read_textfile - function reads a text file and prints to stdout
- * @filename: name of the file to be read
- * @letters: number of letters to read and print
- *
- * Return: actual number of letters read and printed
- * otherwise 0 on failure
- */
+
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, bytes_read, bytes_written;
+	int fd;
+	ssize_t r, w;
 	char *buffer;
 
 	if (filename == NULL)
 		return (0);
-
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
-
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
 	{
 		close(fd);
 		return (0);
 	}
-
-	bytes_read = read(fd, buffer, letters);
-	if (bytes_read == -1)
-	{
-		close(fd);
-		free(buffer);
-		return (0);
-	}
-
-	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-	if (bytes_written == -1 || (size_t)bytes_written != letters)
-	{
-		close(fd);
-		free(buffer);
-		return (0);
-	}
-
+	r = read(fd, buffer, letters);
 	close(fd);
+	if (r == -1)
+	{
+		free(buffer);
+		return (0);
+	}
+	w = write(STDOUT_FILENO, buffer, r);
 	free(buffer);
-
-	return (bytes_written);
+	if (r != w)
+		return (0);
+	return (w);
 }
